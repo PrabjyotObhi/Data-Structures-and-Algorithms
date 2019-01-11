@@ -1,0 +1,20 @@
+When I first saw this, I thought of the recursive example we did in class, 
+but I think the use of stacks makes this easier to think about. 
+
+First, we want to take a value in to convert to binary, and it should be an integer
+as we didn't have to deal with binary conversions of doubles. We need to take this into
+a variable. 
+
+Once this is done, we would need to create the stack that would be able to handle 1s and 0s as 
+this is what a binary number has. 
+
+After we have a place to push our numbers, we would go through a while loop with the condition check
+being (number input>0), and then we would take that value and %2 it to see if we should push a 0 or a 1. 
+Once that value is pushed, we half the original value. 
+
+Then we would print a statement saying something like "in binary the value is, " then have a second while
+loop for the output of the values. We would check the size and compare it to 0, and while it's greater 
+than 0, we would print out the top value, pop it, and then repeat. 
+
+*UPDATE AFTER MAKING THE PROGRAM* 
+We want to check to see if they input 0, with an if statement. Everything above would be in the else. 
