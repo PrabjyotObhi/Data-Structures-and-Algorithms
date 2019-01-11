@@ -1,0 +1,44 @@
+Lucas.txt
+
+lucas(6)
+lucas(5)
+lucas(4)
+lucas(3)
+lucas(2)
+lucas(2) returns 1
+lucas(1)
+lucas(1) returns 2
+lucas(2)
+lucas(2) returns 1
+lucas(3)
+lucas(2)
+lucas(2) returns 1
+lucas(1)
+lucas(1) returns 2
+lucas(4)
+lucas(3)
+lucas(2)
+lucas(2) returns 1
+lucas(1)
+lucas(1) returns 2
+lucas(2)
+lucas(2) returns 1
+lucas(5)
+lucas(4)
+lucas(3)
+lucas(2)
+lucas(2) returns 1
+lucas(1)
+lucas(1) returns 2
+lucas(2)
+lucas(2) returns 1
+lucas(3)
+lucas(2)
+lucas(2) returns 1
+lucas(1)
+lucas(1) returns 2
+
+
+
+
+
