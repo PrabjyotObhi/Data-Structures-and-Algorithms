@@ -1,0 +1,56 @@
+PseudoCode for Functions:
+
+private data fields:
+	stack<elemType> input;
+	stack<elemType> output;
+	int size=0;
+
+functions:
+	bool isEmpty(){
+		     check if size field is 0, if yes then return true. OR if the size is 0, it would be considered false-so check !size
+		     return(!size);
+		  }
+	
+	bool isFull(){
+			this will always be false as we are using stacks as our implementation tools. If we were using an array with a set size
+			then this would have a possibility of being true. However, in this case, simply return false
+			return(false);
+		}
+	
+	void enqueue(elemType block){
+			this simply needs to push the value being enqueued into the input stack, and increment the size. 
+			input.push(block);
+			size++;
+		}
+		
+	int getSize(){
+			Since we have a data field for the size, we simply return it. 
+			return size;
+		}
+	
+	elemType dequeue(){
+			since we push values into the input stack in the enqueue function we need to check if the input stack is empty. 
+			However, we also need to check if the output stack is empty, and if both are empty we would terminate the program. 
+			
+			After this, we need to flip the input stack into the output stack. 
+			
+			We check to see if the output stack is empty after already having done this once already before throwing the error. 
+			If the output stack is empty, then we push the top of input value, then pop the input stack to be able to push the next object into the output stack. 
+			
+			Once the input stack is completely flipped, we set the top of output to temporary variable of elemType, pop the output stack, and then return that temporary variable
+			*UPDATE AFTER INITIAL RUN*
+				I FORGOT TO DECREMENT SIZE, THIS SHOULD BE DONE BEFORE THE RETURN STATEMENT.
+		}
+
+	elemType front(){
+			This is essentially same as the dequeue function:check if input and output stacks are empty(throw an error then terminate), flip input stack into output stack the same way as in dequeue, set the top of output to a temporary variable, and finally return that temporary variable. 
+			You do not pop the output stack as you did in the dequeue because you're just checking what's in front of the queue
+		}
+		
+	Time Complexities:
+		bool isEmpty- O(1)
+		bool isFull- O(1)
+		void enqueue- O(1)
+		int getSize- O(1)
+		elemType dequeue- O(n)
+		elemType front-O(n)
