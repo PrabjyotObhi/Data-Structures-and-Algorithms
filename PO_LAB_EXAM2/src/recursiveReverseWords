@@ -1,0 +1,23 @@
+PsuedoCode for reversing the words in a linked list recursivley:
+
+From linkedlist.h and the main provided, we insert at the back which means the last word would be in the tail, so the base case of this
+would be if the tail and head point to the same node as there would only be one node in the list. 
+
+we would check to see if this is the case, if not we would increment the head towards the tail, and when they are equal we would
+return the value at the tail into the string that holds what would be returned to main. 
+
+string reverseWords(ll list){
+	string reversed
+	if(!head){
+		end it
+	}
+	if(head==tail){
+		reversed=list.head->element 
+		as there is only node element in the entire list
+	}
+	if(head!=tail){
+		increment head towards the tail then call the function again with the list, and then add the head's element to the reverse
+		string
+	}
+	return reversed;
+}	

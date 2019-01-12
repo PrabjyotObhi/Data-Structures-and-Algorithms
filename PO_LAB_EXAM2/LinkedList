@@ -1,0 +1,168 @@
+
+#ifndef LINKEDLIST_H_
+#define LINKEDLIST_H_
+
+#include <iostream>
+using namespace std;
+
+template <class T>
+class LinkedList{
+public:
+	struct LinkedListNode{
+		T element;
+		LinkedListNode* next;
+		LinkedListNode();
+		LinkedListNode(T element);
+		LinkedListNode(T element, LinkedListNode* next);
+		~LinkedListNode();
+	};
+	LinkedListNode *head;
+	LinkedListNode *tail;
+;
+
+public:
+	LinkedList();
+	~LinkedList();
+	void insertFront(T element);
+	void insertBack(T element);
+	T removeFront();
+	T removeBack();
+	void print();
+	void reverseList();
+	void clear();
+	const LinkedListNode* getHead() const {
+		return head;
+	}
+
+	const LinkedListNode* getTail() const {
+		return tail;
+	}
+};
+
+template<class T>
+LinkedList<T>::LinkedListNode::LinkedListNode() {
+	this->next = NULL;
+}
+
+template<class T>
+LinkedList<T>::LinkedListNode::LinkedListNode(T element) {
+	this->element = element;
+	this->next = NULL;
+}
+
+template<class T>
+LinkedList<T>::LinkedListNode::LinkedListNode(T element,
+		LinkedListNode* next) : element(element), next(next) {
+}
+
+template<class T>
+LinkedList<T>::LinkedListNode::~LinkedListNode() {}
+
+template<class T>
+LinkedList<T>::LinkedList() {
+	head = NULL;
+	tail = NULL;
+}
+
+template<class T>
+LinkedList<T>::~LinkedList() {
+	clear();
+}
+
+template<class T>
+void LinkedList<T>::insertFront(T element) {
+	LinkedListNode * new_node = new LinkedListNode(element);
+	new_node->next = head;
+	head = new_node;
+	if(tail == NULL)
+		tail = new_node;
+}
+
+template<class T>
+void LinkedList<T>::insertBack(T element) {
+	LinkedListNode * new_node = new LinkedListNode(element);
+	if(tail == NULL){
+		head = new_node;
+	}
+	else{
+		tail->next = new_node;
+	}
+	tail = new_node;
+}
+
+template<class T>
+T LinkedList<T>::removeFront() {
+	if(head == NULL){
+		throw "Removing from empty linked list";
+	}
+	LinkedListNode *old_head = head;
+	T return_element = old_head->element;
+	head = head->next;
+	if(head == NULL)
+		tail = NULL;
+	delete old_head;
+	return return_element;
+}
+
+template<class T>
+T LinkedList<T>::removeBack() {
+	LinkedListNode *old_tail = tail;
+	T return_element = old_tail->element;
+	if(head == NULL){
+		throw "Removing from empty linked list";
+	}
+	LinkedListNode *temp = head;
+	if(head == tail){
+		head = NULL;
+		tail = NULL;
+	}
+	while(temp->next != tail){
+		temp = temp->next;
+	}
+	temp->next = NULL;
+	tail = temp;
+	delete old_tail;
+	return return_element;
+}
+
+template<class T>
+void LinkedList<T>::print() {
+	LinkedListNode *temp = head;
+	if(temp == NULL)
+		cout << "Empty" << endl;
+	while(temp){
+		cout << temp->element <<  " ";
+		temp = temp->next;
+	}
+	cout << endl;
+}
+
+template<class T>
+void LinkedList<T>::reverseList() {
+	if(!head)
+		return;
+	if(head == tail)
+		return;
+	LinkedListNode* temp;
+	LinkedListNode* next;
+	LinkedListNode* prev;
+	tail = head;
+	prev = NULL;
+	temp = head;
+	while(temp){
+		next = temp->next;
+		temp->next = prev;
+		prev = temp;
+		temp = next;
+	}
+	head = prev;
+}
+
+template<class T>
+void LinkedList<T>::clear() {
+	while(head){
+		removeFront();
+	}
+}
+
+#endif /* LINKEDLIST_H_ */
